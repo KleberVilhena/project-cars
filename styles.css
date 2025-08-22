@@ -1,122 +1,242 @@
 /* ============= ARQUIVO CSS ============= */
+
+/* O * (asterisco) seleciona todos os elementos da página e aplica os seguintes estilos */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    margin: 0; /* Remove as margens padrão de todos os elementos */
+    padding: 0; /* Remove o preenchimento padrão de todos os elementos */
+    box-sizing: border-box; /* Ajusta o modelo de caixa para incluir bordas e padding nas dimensões totais do elemento */
+    font-family: 'Poppins', sans-serif; /* Define a fonte global da página para "Poppins" e uma fonte sans-serif de reserva */
 }
 
+/* Estilos do body da página, que afetam o fundo e o texto de toda a página */
 body {
-    background-color: #000;
-    color: #fff;
-    font-size: 16px;
-    overflow: hidden;
+    background-color: #000; /* Define o fundo da página como preto */
+    color: #fff; /* Define a cor do texto como branco */
+    font-size: 16px; /* Define o tamanho da fonte padrão como 16px */
+    overflow: hidden; /* Impede a rolagem da página */
 }
 
+/* Cabeçalho fixo no topo da página, com centralização e design de grid */
 header {
-    position: fixed;
-    top: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: grid;
-    grid-template-columns: 250px 1fr;
-    gap: 50px;
-    align-items: center;
-    width: 80vw;
-    z-index: 3;
+    position: fixed; /* Fixa o cabeçalho no topo da página */
+    top: 15px; /* Define a distância do topo da página */
+    left: 50%; /* Centraliza o cabeçalho horizontalmente */
+    transform: translateX(-50%); /* Compensa a posição para garantir o alinhamento central exato */
+    display: grid; /* Define que o cabeçalho será um grid */
+    grid-template-columns: 250px 1fr; /* Define duas colunas: a primeira com 250px e a segunda ocupando o restante do espaço */
+    gap: 50px; /* Adiciona um espaço de 50px entre as colunas */
+    align-items: center; /* Alinha os itens no centro verticalmente */
+    width: 80vw; /* Define a largura do cabeçalho como 80% da largura da viewport */
+    z-index: 3; /* Define a camada do cabeçalho acima de outros elementos */
 }
 
+/* Imagem do logo no cabeçalho */
 header img {
-    width: 100%;
+    width: 100%; /* A imagem ocupa toda a largura disponível */
 }
 
+/* Menu de navegação no cabeçalho */
 header nav ul {
-    display: flex;
-    gap: 30px;
-    list-style: none;
-    justify-content: flex-end;
+    display: flex; /* Usa o modelo de layout flexível para os itens do menu */
+    gap: 30px; /* Define um espaço de 30px entre os itens */
+    list-style: none; /* Remove os marcadores da lista */
+    justify-content: flex-end; /* Alinha os itens à direita */
 }
 
+/* Seção principal com fundo gradiente */
 .container {
-    background-image: radial-gradient(#7f3d9e, #6d00d9);
-    height: 100vh;
-    position: relative;
+    background-image: radial-gradient(#7f3d9e, #6d00d9); /* Aplica um gradiente radial de duas cores */
+    height: 100vh; /* Define a altura da seção como 100% da altura da viewport */
+    position: relative; /* Posicionamento relativo para o controle de elementos dentro dessa seção */
 }
 
+/* Lista de itens (carros) no slider */
 .list {
-    width: 70vw;
-    margin: auto;
-    height: 100%;
-    position: relative;
+    width: 70vw; /* Define a largura da lista como 70% da largura da viewport */
+    margin: auto; /* Centraliza a lista horizontalmente */
+    height: 100%; /* Define a altura da lista como 100% da altura da seção */
+    position: relative; /* Posiciona os itens da lista dentro da lista de forma relativa */
 }
 
+/* Estilo dos itens do slider */
 .item {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 0.5s;
-    visibility: hidden;
+    position: absolute; /* Posiciona os itens de forma absoluta dentro da lista */
+    inset: 0; /* Define as margens (topo, direita, fundo, esquerda) como 0 */
+    opacity: 0; /* Inicialmente, os itens são invisíveis */
+    transition: opacity 0.5s; /* Transição suave para a opacidade */
+    visibility: hidden; /* Inicialmente, os itens estão invisíveis */
 }
 
+/* Estilo do item ativo (visível) no slider */
 .item.active {
-    opacity: 1;
-    visibility: visible;
-    z-index: 1;
+    opacity: 1; /* Torna o item visível */
+    visibility: visible; /* Torna o item visível */
+    z-index: 1; /* Coloca o item ativo acima dos outros itens */
 }
 
+/* Estilo da imagem do carro dentro de cada item */
 .item .car-img {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 70%;
+    position: absolute; /* Posiciona a imagem do carro de forma absoluta */
+    top: 50%; /* Posiciona a imagem verticalmente no meio */
+    transform: translateY(-50%); /* Compensa o deslocamento para garantir que a imagem fique no centro */
+    width: 70%; /* Define a largura da imagem como 70% da largura do item */
 }
 
+/* Estilo da imagem do carro, rotacionando-a e ajustando a opacidade */
 .item .car-img img {
-    width: 100%;
-    transform: rotate(-30deg);
-    opacity: 0;
+    width: 100%; /* A imagem ocupa toda a largura disponível do contêiner */
+    transform: rotate(-30deg); /* Rotaciona a imagem em -30 graus */
+    opacity: 0; /* Inicialmente, a imagem está invisível */
 }
 
+/* Quando o item estiver ativo, anima a imagem do carro */
 .item.active .car-img img {
-    animation: carStoppingEffect 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation: carStoppingEffect 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; /* Anima a imagem com um efeito de "parada" */
 }
 
+/* Estilo do conteúdo do item (informações sobre o carro) */
 .item .content {
-    position: absolute;
-    right: 0;
-    width: 70%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: end;
-    gap: 20px;
-    text-align: right;
+    position: absolute; /* Posiciona o conteúdo de forma absoluta dentro do item */
+    right: 0; /* Alinha o conteúdo à direita */
+    width: 70%; /* Define a largura do conteúdo como 70% do item */
+    height: 100%; /* Define a altura do conteúdo como 100% do item */
+    display: flex; /* Usa layout flexível para o conteúdo */
+    flex-direction: column; /* Organiza os itens em uma coluna */
+    justify-content: center; /* Centraliza os itens verticalmente */
+    align-items: end; /* Alinha os itens à direita */
+    gap: 20px; /* Adiciona um espaço de 20px entre os itens */
+    text-align: right; /* Alinha o texto à direita */
 }
 
+/* Estilo das informações sobre o carro */
 .content .car-information { font-weight: bold; }
 .content h2 { font-size: 8em; line-height: 1em; font-family: 'League Gothic', sans-serif; }
 .content .description { color: #d9d9d9; font-size: 12px; max-width: 400px; }
 .content .information { border-radius: 30px; height: 35px; width: 120px; text-transform: uppercase; border: 2px solid #81ff22; background-color: #bfff1b; color: #000; cursor: pointer; font-weight: bold; }
 
-.arrows { width: 70vw; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -25px); display: flex; justify-content: space-between; z-index: 2; }
-.arrows button { width: 50px; height: 50px; border-radius: 50%; border: none; cursor: pointer; background-color: rgba(255, 255, 255, 0.1); position: relative; transition: background-color 0.3s; }
+/* Estilo dos botões de navegação */
+.arrows { 
+    width: 70vw; /* Define a largura da área das setas como 70% da viewport */
+    position: absolute; /* Posiciona as setas de forma absoluta */
+    top: 50%; /* Posiciona as setas verticalmente no meio */
+    left: 50%; /* Posiciona as setas horizontalmente no centro */
+    transform: translate(-50%, -25px); /* Ajusta o posicionamento para o centro exato */
+    display: flex; /* Usa layout flexível para distribuir as setas */
+    justify-content: space-between; /* Distribui as setas igualmente */
+    z-index: 2; /* Coloca as setas acima de outros elementos */
+}
+.arrows button { 
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%; 
+    border: none; 
+    cursor: pointer; 
+    background-color: rgba(255, 255, 255, 0.1); 
+    position: relative; 
+    transition: background-color 0.3s;
+}
+
+/* Efeito de hover sobre os botões das setas */
 .arrows button:hover { background-color: #bfff1b; }
-.arrows button::before { content: ''; position: absolute; top: 50%; left: 50%; width: 0; height: 0; border-style: solid; transition: border-color 0.3s; }
-.arrows button#next::before { border-width: 8px 0 8px 12px; border-color: transparent transparent transparent #fff; transform: translate(-40%, -50%); }
-.arrows button#prev::before { border-width: 8px 12px 8px 0; border-color: transparent #fff transparent transparent; transform: translate(-60%, -50%); }
-.arrows button:hover::before { border-color: transparent black transparent black; }
 
-.indicators { position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 15px; z-index: 2; }
-.indicators .number { font-size: 5em; font-family: 'League Gothic', sans-serif; }
-.indicators ul { display: flex; gap: 10px; list-style: none; }
-.indicators ul li { width: 50px; height: 5px; background-color: #bfff1b; border-radius: 5px; transition: 0.5s; }
-.indicators ul li.active { background-color: #fff; }
+/* Estilo para as setas antes do clique */
+.arrows button::before { 
+    content: ''; 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    width: 0; 
+    height: 0; 
+    border-style: solid; 
+    transition: border-color 0.3s; 
+}
 
-@keyframes carStoppingEffect { 0% { opacity: 0; transform: translateX(calc(150px * var(--calculation))) rotate(-30deg); } 60% { opacity: 1; transform: translateX(calc(-20px * var(--calculation))) rotate(-32deg) translateY(5px); } 80% { transform: translateX(calc(10px * var(--calculation))) rotate(-29deg) translateY(-3px); } 100% { opacity: 1; transform: translateX(0) rotate(-30deg) translateY(0); } }
+/* Definição das setas direcionais (próximo e anterior) */
+.arrows button#next::before { 
+    border-width: 8px 0 8px 12px; 
+    border-color: transparent transparent transparent #fff; 
+    transform: translate(-40%, -50%); 
+}
+.arrows button#prev::before { 
+    border-width: 8px 12px 8px 0; 
+    border-color: transparent #fff transparent transparent; 
+    transform: translate(-60%, -50%); 
+}
 
-.item.active .content > * { transform: translateX(calc(100px * var(--calculation))); opacity: 0; animation: contentIn 1s ease-in-out forwards; }
-@keyframes contentIn { from { opacity: 0; transform: translateX(calc(100px * var(--calculation))); } to { opacity: 1; transform: translateX(0); } }
+/* Efeito de hover nas setas, alterando a cor do "seta" */
+.arrows button:hover::before { 
+    border-color: transparent black transparent black; 
+}
+
+/* Indicadores de navegação (pontos de controle) */
+.indicators { 
+    position: absolute; 
+    bottom: 50px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 15px; 
+    z-index: 2; 
+}
+.indicators .number { 
+    font-size: 5em; 
+    font-family: 'League Gothic', sans-serif; 
+}
+.indicators ul { 
+    display: flex; 
+    gap: 10px; 
+    list-style: none; 
+}
+.indicators ul li { 
+    width: 50px; 
+    height: 5px; 
+    background-color: #bfff1b; 
+    border-radius: 5px; 
+    transition: 0.5s; 
+}
+.indicators ul li.active { 
+    background-color: #fff; 
+}
+
+/* Animações para o efeito de parada do carro */
+@keyframes carStoppingEffect { 
+    0% { 
+        opacity: 0; 
+        transform: translateX(calc(150px * var(--calculation))) rotate(-30deg); 
+    } 
+    60% { 
+        opacity: 1; 
+        transform: translateX(calc(-20px * var(--calculation))) rotate(-32deg) translateY(5px); 
+    } 
+    80% { 
+        transform: translateX(calc(10px * var(--calculation))) rotate(-29deg) translateY(-3px); 
+    } 
+    100% { 
+        opacity: 1; 
+        transform: translateX(0) rotate(-30deg) translateY(0); 
+    } 
+}
+
+/* Animação do conteúdo do carro entrando no slider */
+.item.active .content > * { 
+    transform: translateX(calc(100px * var(--calculation))); 
+    opacity: 0; 
+    animation: contentIn 1s ease-in-out forwards; 
+}
+@keyframes contentIn { 
+    from { 
+        opacity: 0; 
+        transform: translateX(calc(100px * var(--calculation))); 
+    } 
+    to { 
+        opacity: 1; 
+        transform: translateX(0); 
+    } 
+}
+
+/* Delays para a animação do conteúdo do carro */
 .item.active .content .car-information { animation-delay: 0.2s; }
 .item.active .content h2 { animation-delay: 0.4s; }
 .item.active .content .description { animation-delay: 0.6s; }

@@ -1,23 +1,55 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FP Selection - Versão Final</title>
+<!-- A tag <html> é a tag raiz do documento HTML. Ela envolve todo o conteúdo da página.
+     O atributo "lang" define o idioma do conteúdo, neste caso, português do Brasil (pt-BR). -->
 
+<head>
+    <!-- A tag <head> contém metadados sobre o documento HTML. 
+         Esses dados não são visíveis para o usuário, mas são importantes para o navegador e o SEO (otimização de motores de busca). -->
+
+    <meta charset="UTF-8">
+    <!-- O <meta charset="UTF-8"> define o conjunto de caracteres usado para exibir o conteúdo da página. 
+         UTF-8 é um conjunto de caracteres universal que suporta todos os caracteres e símbolos. -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- O <meta name="viewport"> é crucial para tornar a página responsiva. 
+         Ele diz ao navegador como redimensionar e ajustar a página conforme a largura da tela do dispositivo. -->
+
+    <title>FP Selection - Versão Final</title>
+    <!-- O <title> define o título da página que aparece na aba do navegador. -->
+
+    <!-- Abaixo temos links para fontes externas e o arquivo de estilo CSS. -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- O <link rel="preconnect"> acelera a conexão com o servidor externo, no caso, o servidor de fontes do Google. -->
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Essa segunda pré-conexão é usada para garantir que o navegador tenha as permissões necessárias para buscar as fontes com segurança. -->
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Aqui estamos incluindo a fonte "Poppins" do Google Fonts. O atributo "rel" indica que estamos vinculando uma folha de estilo (CSS). -->
+
     <link href="https://fonts.googleapis.com/css2?family=League+Gothic&display=swap" rel="stylesheet">
-    
+    <!-- Da mesma forma, estamos incluindo a fonte "League Gothic". -->
+
     <link rel="stylesheet" href="styles.css">
+    <!-- Este link faz a conexão com o arquivo CSS "styles.css", onde estarão os estilos para a página, controlando como o conteúdo será exibido. -->
 </head>
+
 <body>
+    <!-- A tag <body> contém todo o conteúdo visível da página, que será renderizado para o usuário. -->
+
     <header>
+        <!-- A tag <header> é usada para conteúdo de cabeçalho. Geralmente contém o logo, o título do site e links de navegação. -->
+
         <img src="img/logo.png" alt="Logo FP">
+        <!-- <img> exibe uma imagem. O atributo "src" especifica o caminho da imagem e "alt" fornece uma descrição alternativa para a imagem, útil para SEO e acessibilidade. -->
+
         <nav>
+            <!-- A tag <nav> define um bloco de navegação. Geralmente, contém links para diferentes seções do site. -->
             <ul>
+                <!-- <ul> é uma lista não ordenada. A estrutura de lista é importante para criar menus de navegação. -->
                 <li>Home</li>
+                <!-- Cada <li> é um item de lista. Cada item aqui representa uma opção no menu de navegação. -->
                 <li>Carros</li>
                 <li>Fale Conosco</li>
             </ul>
@@ -25,18 +57,33 @@
     </header>
 
     <section class="container">
+        <!-- A tag <section> é usada para agrupar conteúdo relacionado. A classe "container" pode ser usada para aplicar estilos no CSS, como centralizar o conteúdo. -->
+
         <div class="list">
+            <!-- A tag <div> é um contêiner genérico. Não tem significado semântico por si só, mas é útil para agrupar e organizar elementos. -->
+
             <div class="item active">
+                <!-- Cada <div class="item"> representa um item individual na lista de carros. A classe "active" pode indicar que esse item está em destaque ou ativo. -->
                 <div class="car-img">
+                    <!-- Outra <div>, desta vez com a classe "car-img", destinada a agrupar a imagem do carro. -->
                     <img src="img/1.png" alt="Imagem Carro 1">
+                    <!-- A tag <img> exibe a imagem do carro. O atributo "alt" descreve a imagem, importante para acessibilidade. -->
                 </div>
                 <div class="content">
+                    <!-- A tag <div class="content"> agrupa as informações relacionadas ao carro, como texto e botões. -->
                     <p class="car-information">Único Dono</p>
+                    <!-- <p> é um parágrafo, utilizado para texto. A classe "car-information" pode ser usada para estilizar essa parte. -->
                     <h2>911 Turbo</h2>
+                    <!-- <h2> é um cabeçalho de nível 2, utilizado para títulos importantes. -->
                     <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <!-- Mais um parágrafo, com a classe "description", descrevendo o carro. -->
                     <button class="information">Saiba Mais</button>
+                    <!-- <button> define um botão que o usuário pode clicar. A classe "information" pode ser usada para estilizar o botão no CSS. -->
                 </div>
             </div>
+
+            <!-- Outros itens seguem a mesma estrutura. Cada item é representado por uma <div class="item">. -->
+            <!-- Esses itens podem ser alterados dinamicamente via JavaScript para mostrar diferentes carros. -->
             <div class="item">
                 <div class="car-img">
                     <img src="img/2.png" alt="Imagem Carro 2">
@@ -48,6 +95,7 @@
                     <button class="information">Saiba Mais</button>
                 </div>
             </div>
+
             <div class="item">
                 <div class="car-img">
                     <img src="img/3.png" alt="Imagem Carro 3">
@@ -62,20 +110,25 @@
         </div>
 
         <div class="arrows">
-            <button id="prev"></button>
-            <button id="next"></button>
+            <!-- <div class="arrows"> contém os botões de navegação para percorrer os itens da lista. -->
+            <button id="prev"></button> <!-- O botão "prev" serve para navegar para o item anterior. -->
+            <button id="next"></button> <!-- O botão "next" serve para navegar para o próximo item. -->
         </div>
 
         <div class="indicators">
-            <div class="number">01</div>
+            <!-- A tag <div class="indicators"> contém os indicadores que mostram qual item está sendo exibido atualmente. -->
+            <div class="number">01</div> <!-- Mostra o número do item atual (1, 2, 3, etc.). -->
             <ul>
-                <li class="active"></li>
-                <li></li>
+                <!-- A lista de indicadores. Cada item da lista (<li>) indica um item na lista de carros. -->
+                <li class="active"></li> <!-- O <li class="active"> mostra o item atualmente ativo. -->
+                <li></li> <!-- Os outros itens são indicadores inativos. -->
                 <li></li>
             </ul>
         </div>
     </section>
 
     <script src="script.js"></script>
+    <!-- O <script> é usado para incluir o código JavaScript que traz a interatividade para a página, como navegação entre os carros. -->
 </body>
+
 </html>
